@@ -1,0 +1,22 @@
+{
+  "name": "fast-zip-folder",
+  "version": "0.0.1",
+  "description": "例子： \r 1. node ./fast-zip-folder/zip.js --mode=development\r 2. node ./fast-zip-folder/zip.js --mode=production",
+  "main": "zip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichengde/fast-zip-folder.git"
+  },
+  "author": "chegde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ichengde/fast-zip-folder/issues"
+  },
+  "homepage": "https://github.com/ichengde/fast-zip-folder#readme",
+  "dependencies": {
+    "adm-zip": "^0.4.11"
+  }
+}
