@@ -1,4 +1,5 @@
 const { format } = require('./date.js');
+const fs = require('fs');
 const process = require('process');
 const path = require("path");
 const { exec } = require('child_process');
@@ -27,6 +28,13 @@ exec('git rev-parse HEAD', (error, stdout, stderr) => {
         return;
     }
 
+
+    let crtDir = fs.readdirSync(path.resolve('./'));
+    crtDir = crtDir.filter(i => new RegExp(`^${dirname}-.*\.zip$`).test(i))
+    for (const crtFile of crtDir) {
+        console.log(crtFile);
+        fs.unlinkSync(crtFile);
+    }
 
     zip.writeZip(`${dirname}-${mode.slice(0, 3)}-${time}-${stdout.slice(0, 6)}.zip`);
 });
