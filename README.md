@@ -1,9 +1,10 @@
-# 快速打包dist文件夹
+# 快速打包 dist 文件夹
 
-例子： 
-1. node ./fast-zip-folder/zip.js --mode=development
-2. node ./fast-zip-folder/zip.js --mode=production
+例子：
+
+1. node ./fast-zip-folder/zip.js --mode=development --name=projectName
+2. node ./fast-zip-folder/zip.js --mode=production --name=projectName
 
 ```
-output folder-name + mode-name + timestamp .zip
+output projectName + mode-name + timestamp .zip
 ```

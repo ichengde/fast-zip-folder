@@ -45,9 +45,13 @@ exec('git rev-parse HEAD', (error, stdout, stderr) => {
   let crtDir = fs.readdirSync(path.resolve('./'));
   crtDir = crtDir.filter(i => new RegExp(`^.*\.zip$`).test(i));
   for (const crtFile of crtDir) {
-    console.log(crtFile);
+    console.log('deleted at:' + crtFile);
     fs.unlinkSync(crtFile);
   }
 
   zip.writeZip(`${name}-${mode.slice(0, 3)}-${time}-${stdout.slice(0, 6)}.zip`);
+  console.log(
+    'generate ' +
+      `${name}-${mode.slice(0, 3)}-${time}-${stdout.slice(0, 6)}.zip`
+  );
 });
