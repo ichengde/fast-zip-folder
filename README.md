@@ -1,4 +1,4 @@
-# 快速打包 dist 文件夹
+# [快速打包 dist 文件夹](https://www.npmjs.com/package/fast-zip-folder)
 
 例子：
 
