@@ -6,21 +6,21 @@ const { exec } = require('child_process');
 const AdmZip = require('adm-zip');
 
 /* 
-    mode 打包后显示用的后缀
+  targetDir 对象目录
+  outputDir 输出的目录
+  mode 打包后显示用的后缀
+  name 打包后的文件名
 */
-const modeOriginString = process.argv.slice(2)[0];
-let mode = 'development';
-if (modeOriginString && modeOriginString.indexOf('=') >= 0) {
-  mode = modeOriginString.split('=')[1];
-}
 
-const nameOriginString = process.argv.slice(2)[1];
-let name = 'employee';
-if (nameOriginString && nameOriginString.indexOf('=') >= 0) {
-  name = nameOriginString.split('=')[1];
-}
+const rawArgv = process.argv.slice(2)
+const args = require('minimist')(rawArgv)
 
-const targetPath = path.resolve('./', 'dist');
+let mode = args.mode || 'development';
+let name = args.name || 'employee';
+let targetDir = args.targetDir || 'dist';
+let outputDir = args.outputDir || '';
+
+const targetPath = path.resolve('./', targetDir);
 
 const zip = new AdmZip();
 zip.addLocalFolder(targetPath);
@@ -49,9 +49,9 @@ exec('git rev-parse HEAD', (error, stdout, stderr) => {
     fs.unlinkSync(crtFile);
   }
 
-  zip.writeZip(`${name}-${mode.slice(0, 3)}-${time}-${stdout.slice(0, 6)}.zip`);
+  zip.writeZip(`${outputDir}${name}-${mode.slice(0, 3)}-${time}-${stdout.slice(0, 6)}.zip`);
   console.log(
     'generate ' +
-      `${name}-${mode.slice(0, 3)}-${time}-${stdout.slice(0, 6)}.zip`
+    `${name}-${mode.slice(0, 3)}-${time}-${stdout.slice(0, 6)}.zip`
   );
 });
