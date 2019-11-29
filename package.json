@@ -1,6 +1,6 @@
 {
   "name": "fast-zip-folder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "例子： \r 1. node ./fast-zip-folder/zip.js --mode=development\r 2. node ./fast-zip-folder/zip.js --mode=production",
   "main": "zip.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ichengde/fast-zip-folder#readme",
   "dependencies": {
+    "minimist": "^1.2.0",
     "adm-zip": "^0.4.11"
   }
 }
